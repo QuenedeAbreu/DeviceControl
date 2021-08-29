@@ -40,7 +40,7 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  label{
+  .buttonLogin{
     background-color: #171717;
     padding: 10px;
     color: white;
@@ -51,7 +51,7 @@ form {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 60%;
+    width: calc( 60% - 10px );
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     span{
@@ -65,9 +65,19 @@ form {
     }
   
     @media(max-width: 800px) {
-      width: 85%;
+      width: calc(85% - 50px);
      }
-  }
+    }
+    .remember{
+      width: 60%;
+      margin: 10px 0;
+      
+      color: #909090;
+      input{
+        margin-right: 10px;
+      }
+    }
+
   }
 `
 export const ContentLeft = Styled(Content)`

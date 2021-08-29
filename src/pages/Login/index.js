@@ -3,6 +3,9 @@ import { HiOutlineMail } from "react-icons/hi";
 import { AiFillUnlock } from "react-icons/ai";
 import { FaKey } from "react-icons/fa";
 import { connect } from 'react-redux';
+import useApi from '../../helpers/ApiDeviceControl';
+import { doLogin } from '../../helpers/AuthHandler';
+import { ErrorMessage } from '../../components/MainComponents';
 
 import {
   All,
@@ -15,34 +18,42 @@ import Input from '../../components/Input';
 import ImgLogo from "../../assets/images/logo150x150.png";
 
 function LoginPage(props) {
+  const api = useApi();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [remember, setRemember] = useState(false);
+  const [error, setError] = useState('');
+  const [disabled, setDisabled] = useState(false);
 
-  const handleSubmit = () => {
-    props.setName('Quenede', 30)
+  const handleSubmit = async (e) => {
 
-
+    e.preventDefault();
+    setDisabled(true);
+    const response = await api.login(email, password);
+    console.log(response);
+    if (response.error) {
+      setError(response.error);
+    } else {
+      doLogin(response.token, remember);
+      window.location.href = '/';
+    }
+    setDisabled(false);
   }
 
-  const logout = () => {
-
-    props.revomeUser()
-
-  }
 
   return (
     <All>
       <ContentRight>
-        {props.name}
-        {props.idade}
-        <button onClick={logout}>Remover</button>
         <img src={ImgLogo} alt="logo" />
-        <form >
+        <form onSubmit={handleSubmit}>
+
           <Input
             onChange={(e) => setEmail(e.target.value)}
             type="text"
             placeholder="Usuário"
             Icon={<HiOutlineMail className="icon" />}
+            disabled={disabled}
+            required
           />
 
           <Input
@@ -50,15 +61,23 @@ function LoginPage(props) {
             type="password"
             placeholder="Senha"
             Icon={<FaKey className="icon" />}
+            disabled={disabled}
+            required
           />
+          <label className="remember">
+            <input type="checkbox" onChange={() => setRemember(!remember)} disabled={disabled} />
+            <span>Lembrar-me</span>
+          </label>
+
           {/* Botao de Login  */}
-          <label>
+          <label className="buttonLogin">
             <AiFillUnlock />
             <span>Login</span>
-            <button onClick={handleSubmit}>Login</button>
+            <button disabled={disabled}>Login</button>
           </label>
 
 
+          {error && <ErrorMessage>{error}</ErrorMessage>}
         </form>
       </ContentRight>
       <ContentLeft>
@@ -67,13 +86,13 @@ function LoginPage(props) {
     </All>
   );
 }
+// Actions do redux
 const mapStateToProps = state => {
   return {
     name: state.user.name,
     idade: state.user.idade
   };
 }
-// Actions do redux
 const mapDispatchToProps = (dispatch) => {
 
   return {
