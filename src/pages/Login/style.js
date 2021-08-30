@@ -73,6 +73,9 @@ form {
       margin: 10px 0;
       
       color: #909090;
+      @media(max-width: 800px) {
+        width: 80%;
+       }
       input{
         margin-right: 10px;
       }

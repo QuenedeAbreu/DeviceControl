@@ -30,11 +30,12 @@ function LoginPage(props) {
     e.preventDefault();
     setDisabled(true);
     const response = await api.login(email, password);
-    console.log(response);
-    if (response.error) {
-      setError(response.error);
+
+
+    if (response.status !== 200) {
+      setError(response[Object.keys(response)[0]]);
     } else {
-      doLogin(response.token, remember);
+      doLogin(response.token.key, remember);
       window.location.href = '/';
     }
     setDisabled(false);
