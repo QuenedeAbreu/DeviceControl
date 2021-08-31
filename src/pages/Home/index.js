@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from 'react-redux';
 import {
   All,
   Content,
@@ -9,12 +10,13 @@ import {
   A
 } from './style'
 
-function HomePage() {
+function HomePage(props) {
   return (
     <All>
       <Content>
+
         <A href="https://wiki.servarr.com/">https://wiki.servarr.com/</A>
-      <H1>HomePage</H1>
+        <H1>HomePage</H1>
         <Ul>
           <Li bgColor="#171717">Primary Color : #171717</Li>
           <Li bgColor="#1E1E1E">Secundary Color : #1E1E1E</Li>
@@ -31,4 +33,12 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+const mapStateToProps = (state) => {
+  return {
+    name: state.user.name,
+    userName: state.user.username
+
+  };
+}
+
+export default connect(mapStateToProps)(HomePage);

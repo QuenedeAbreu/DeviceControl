@@ -1,7 +1,6 @@
 
 const initialState = {
-  name: '',
-  idade: 0
+
 }
 
 
@@ -10,8 +9,11 @@ export default (state = initialState, action) => {
     case 'SET_USER':
       return {
         ...state,
+        id: action.payload.id,
         name: action.payload.name,
-        idade: action.payload.idade,
+        username: action.payload.username,
+        role: action.payload.role,
+        role_id: action.payload.role_id,
       }
     case 'REMOVE_USER':
       return {

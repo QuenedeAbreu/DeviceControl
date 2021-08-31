@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import useApi from '../../helpers/ApiDeviceControl';
 import { doLogin } from '../../helpers/AuthHandler';
 import { ErrorMessage } from '../../components/MainComponents';
+import '../../assets/css/loading.css'
 
 import {
   All,
@@ -29,14 +30,24 @@ function LoginPage(props) {
 
     e.preventDefault();
     setDisabled(true);
+    const btn = document.querySelector('.buttonLogin');
+    const content = btn.innerHTML;
+    btn.innerHTML = '<div class="ld ld-spin ld-ring"></div>';
     const response = await api.login(email, password);
+    btn.innerHTML = content;
 
 
     if (response.status !== 200) {
-      setError(response[Object.keys(response)[0]]);
+      if (response.password) {
+        setError('A senha deve ter de 8 a 13 caracteres.');
+      } else {
+        setError('Email ou senha incorretos.');
+      }
+
     } else {
+      props.setUser(response.user);
       doLogin(response.token.key, remember);
-      window.location.href = '/';
+      // window.location.href = '/';
     }
     setDisabled(false);
   }
@@ -71,7 +82,8 @@ function LoginPage(props) {
           </label>
 
           {/* Botao de Login  */}
-          <label className="buttonLogin">
+          <label className="buttonLogin ">
+
             <AiFillUnlock />
             <span>Login</span>
             <button disabled={disabled}>Login</button>
@@ -87,22 +99,17 @@ function LoginPage(props) {
     </All>
   );
 }
-// Actions do redux
-const mapStateToProps = state => {
-  return {
-    name: state.user.name,
-    idade: state.user.idade
-  };
+
+const mapStateToProps = (state) => {
+  return { };
 }
+
 const mapDispatchToProps = (dispatch) => {
 
   return {
-    setName: (NewName, NewIdade) => dispatch({
+    setUser: (NewUser) => dispatch({
       type: 'SET_USER',
-      payload: {
-        name: NewName,
-        idade: NewIdade
-      }
+      payload: NewUser
     }),
     revomeUser: () => dispatch({
       type: 'REMOVE_USER'
