@@ -1,4 +1,4 @@
-import Styled  from 'styled-components'
+import Styled from 'styled-components'
 
 export const All = Styled.div`
   max-width: 100vw !important;
@@ -6,30 +6,30 @@ export const All = Styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`
-export const Content = Styled.div`
-width: 60%;
-height: 100% !important;
-min-height: 500px;
-background-color: #696969;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-border-radius: 15px;
-`
-export const H1 = Styled.h1`
-  color: white;
-`
-export const P = Styled.p`
-color: white;
-`
-export const Ul = Styled.ul`
-`
-export const Li = Styled.li`
-color: white;
-background-color: ${props => props.bgColor};
-`
-export const A = Styled.a`
-color: white;
+  background-color: #252525;
+  flex-direction: column;
+  .containerAll{
+    width: 100%;
+    flex: 1;
+    display: flex;
+    background-color: red;
+    .containerBody{
+      flex: 1;
+      background-color: #525;
+    }
+  }
+  h1{
+    font-size: 3rem;
+    color: #fff;
+  }
+  p{
+    font-size: 1.5rem;
+    color: #fff;
+  }
+  @media(max-width: 800px) {
+    flex-direction: column;
+    position: relative;
+  }
+
+
 `

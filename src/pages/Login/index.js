@@ -38,16 +38,17 @@ function LoginPage(props) {
 
 
     if (response.status !== 200) {
-      if (response.password) {
-        setError('A senha deve ter de 8 a 13 caracteres.');
+      if (response.message === 'Unauthorized') {
+        setError('Usuário ou senha inválidos');
       } else {
-        setError('Email ou senha incorretos.');
+        setError(response[Object.keys(response)[0]]);
+        console.clear()
       }
-
     } else {
       props.setUser(response.user);
       doLogin(response.token.key, remember);
-      // window.location.href = '/';
+      setError('');
+      window.location.href = '/';
     }
     setDisabled(false);
   }

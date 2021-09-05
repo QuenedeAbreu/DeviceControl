@@ -14,6 +14,7 @@ const apiFetchPost = async (url, data) => {
 
   }
   try {
+
     const response = await fetch(BASEAPI + url, {
       method: "POST",
       headers: {
@@ -35,6 +36,7 @@ const apiFetchPost = async (url, data) => {
     console.log(error);
   }
 }
+
 // eslint-disable-next-line
 const apiFetchGet = async (url, data = []) => {
   if (!data.token) {
@@ -59,11 +61,15 @@ const apiFetchGet = async (url, data = []) => {
 const ApiDeviceControl = {
   login: async function (username, password) {
     // consultar api para obtener token
-    const response = await apiFetchPost(
-      '/api/auth/login ',
-      { username, password });
+    try {
 
-    return response;
+      const response = await apiFetchPost(
+        '/api/auth/login ',
+        { username, password });
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
 
