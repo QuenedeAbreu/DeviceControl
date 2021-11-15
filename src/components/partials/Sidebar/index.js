@@ -1,9 +1,9 @@
 import React from 'react';
 import { SidebarArea } from './styled';
 
-function Siderbar() {
+function Siderbar(props) {
   return (
-    <SidebarArea>
+    <SidebarArea className={props.active}  >
       <h1>Sidebar</h1>
     </SidebarArea>
 
@@ -11,3 +11,4 @@ function Siderbar() {
 }
 
 export default Siderbar;
+

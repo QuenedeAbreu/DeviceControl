@@ -1,30 +1,33 @@
 import React from 'react';
 //Inportacoes de Roteadores
-import { Switch, Route } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 
 import Home from './pages/Home';
 import Login from './pages/Login';
+
 import Cores from './pages/Cores';
 import NotFound from './pages/NotFound';
+import PrivateRoute from './components/RouterHendlerPrivate';
 
 function Router() {
   return (
     <Switch>
-      <Route exact path="/" >
+
+      <PrivateRoute exact path="/" >
         <Home />
-      </Route>
+      </PrivateRoute>
 
-      <Route exact path="/cores" >
+      <PrivateRoute exact path="/cores" >
         <Cores />
-      </Route>
+      </PrivateRoute>
 
-      <Route path="/login" >
+      <PrivateRoute path="/login" >
         <Login />
-      </Route>
+      </PrivateRoute>
 
-      <Route path="*">
+      <PrivateRoute path="*">
         <NotFound />
-      </Route>
+      </PrivateRoute>
 
     </ Switch>
   )
