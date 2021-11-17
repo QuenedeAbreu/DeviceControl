@@ -2,10 +2,15 @@ import React, { useState } from 'react';
 import { PageAll } from './styled';
 import { AiOutlineMenu } from "react-icons/ai";
 import { FaSearch, FaUserCircle } from "react-icons/fa";
+import { MdLogout } from "react-icons/md";
 import Siderbar from '../Sidebar';
+import { Link } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 function Header(props) {
-  const [isOpen, setIsOpen] = useState(true);
+  //Open sidebar
+  const [isOpen, setIsOpen] = useState(false);
+
   const [search, setSearch] = useState('');
 
   const showSidebar = () => setIsOpen(!isOpen);
@@ -13,6 +18,12 @@ function Header(props) {
   const handleSearch = (e) => {
     e.preventDefault();
     setSearch(e.target.value);
+  }
+  const sistemLogout = (e) => {
+    e.preventDefault();
+    alert('Logout');
+    Cookies.remove('token', { path: '' })
+    window.location.reload();
   }
   return (
 
@@ -30,7 +41,15 @@ function Header(props) {
           </div>
         </div>
         <div className="headerContent--right">
-          <FaUserCircle />
+          <Link to="/profile">
+            <FaUserCircle className='icon--perfil' />
+          </Link>
+          <button onClick={sistemLogout}>
+            <div className="headerContent--right--logout">
+              <MdLogout className='icon--logout' />
+              <span>Sair</span>
+            </div>
+          </button>
         </div>
       </div>
       <div className='bodyContent'>
