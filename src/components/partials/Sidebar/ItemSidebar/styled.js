@@ -3,14 +3,16 @@ import colors from "../../../../helpers/Colors";
 import { Link } from "react-router-dom";
 import Colors from '../../../../helpers/Colors';
 
+
 export const SidebarLink = Styled(Link)`
+
   display: flex;
   color: ${colors.white};
   justify-content: space-between;
   align-items: center;
   padding: 0 20px 0 20px;
   list-style:none;
-  height: 60px;
+  height: 40px;
   font-size: 16px;
   text-decoration: none;
   transition: all 0.3s ease;
@@ -22,6 +24,27 @@ export const SidebarLink = Styled(Link)`
     cursor: pointer;
   }
 `;
+
+export const SidebarNoLink = Styled.div`
+ display: flex;
+  color: ${colors.white};
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px 0 20px;
+  list-style:none;
+  height: 40px;
+  font-size: 16px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  
+
+  &:hover {
+    background-color: ${Colors.tertiary};
+    border-left: 4px solid ${Colors.inforOne};
+    cursor: pointer;
+  }
+`;
+
 
 export const SidebarLabel = Styled.span`
   margin-left: 16px;
@@ -40,7 +63,7 @@ export const DropdownLink = Styled(Link)`
     }
   }  
   background: ${Colors.quaternary};
-  height: 60px;
+  height: 40px;
   padding-left: 3rem;
   display: flex;
   align-items: center;

@@ -6,12 +6,33 @@ export const PageAll = styled.div`
   background-color:  ${colors.black};
   display: flex;
   flex-direction: column;
-  
+
+  .box--all-shadow{
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: ${colors.black};
+    opacity: 0.75;
+    animation: shadow-all 0.5s ease-in-out;
+    @keyframes shadow-all {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 0.75;
+      }
+    }
+    /* display: none; */
+  }
 
   .headerContent{
     display: flex;
     width: 100%;
-    height: 50px;
+    min-height: 50px;
+    z-index: 9999;
+    position: relative;
     .headerContent--left{
       flex: 1;
       display: flex;
@@ -116,6 +137,7 @@ export const PageAll = styled.div`
     width: 100%;
     flex: 1;
     display: flex;
+    
 
     .active{
       margin-left: -300px !important;
@@ -125,7 +147,7 @@ export const PageAll = styled.div`
   @media (max-width: 600px) {
     .bodyContent{
     .active{
-      margin-left: -50% !important;
+      margin-left: -70% !important;
     }
   }
   }

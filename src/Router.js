@@ -19,7 +19,7 @@ function Router() {
         <Home />
       </PrivateRoute>
 
-      <PrivateRoute exact path="teste" >
+      <PrivateRoute exact path="/teste" >
         <Teste />
       </PrivateRoute>
 

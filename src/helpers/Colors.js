@@ -3,6 +3,7 @@ export default {
   secondary: '#1E1E1E',
   tertiary: '#303030',
   quaternary: '#414757',
+  quinary: '#0C0C0C',
   inforOne: '#0D47A1',
   inforOneIcon: '#2196F3',
   buttonsOne: '#149285',

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 // import { Link } from "react-router-dom";
 import {
   SidebarLink,
+  SidebarNoLink,
   SidebarLabel,
   DropdownLink
 } from "./styled";
@@ -11,7 +12,7 @@ function ItemSidebar({ item }) {
   const showSubnav = () => setSubnav(!subnav);
   return (
     <div>
-      {item.subNav ? <SidebarLink onClick={item.subNav && showSubnav}>
+      {item.subNav ? <SidebarNoLink onClick={item.subNav && showSubnav} >
         <div>
           {item.icon}
           <SidebarLabel>{item.title}</SidebarLabel>
@@ -25,7 +26,7 @@ function ItemSidebar({ item }) {
               : null}
         </div>
 
-      </SidebarLink>
+      </SidebarNoLink>
         :
         <SidebarLink to={item.path}>
           <div>
