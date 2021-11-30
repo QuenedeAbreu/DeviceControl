@@ -9,7 +9,7 @@ export const AllWidgetDashboard = Styled.div`
   min-height: 100px;
   margin: 10px 10px 0 0;
   border-radius: 10px;
-  background: ${Colors.secondary};
+  background: ${Colors.primary};
   display: flex;
   /* justify-content: center; */
   box-shadow: 2px 2px 3px 0px ${Colors.lighterWhiteTransparent};

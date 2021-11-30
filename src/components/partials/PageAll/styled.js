@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import colors from "../../../helpers/Colors";
 export const PageAll = styled.div`
+  position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  min-height: 100%;
   background-color:  ${colors.black};
   display: flex;
   flex-direction: column;
@@ -135,8 +137,10 @@ export const PageAll = styled.div`
 
   .bodyContent{
     width: 100%;
-    flex: 1;
+    min-height: 100% !important;
     display: flex;
+    flex-direction: row;
+    background-color: yellow;
     
 
     .active{

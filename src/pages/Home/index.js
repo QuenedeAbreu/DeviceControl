@@ -28,13 +28,21 @@ function page() {
       <All>
 
         <div className="container--Body">
+
           <div className="container--Body--widget">
             {widgetsIfons.map(widget => (
               <WidgetDashboard key={widget.id} {...widget} />
             ))}
+          </div>
+
+          <div className="container--Body--graphics">
+            <h1>Graphicos</h1>
+            <h1>Graphicos</h1>
+
+
 
           </div>
-          <h1>page Home</h1>
+
         </div>
 
       </All>

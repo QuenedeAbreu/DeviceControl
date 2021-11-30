@@ -2,10 +2,11 @@ import styled from "styled-components";
 import Colors from "../../../helpers/Colors";
 
 export const SidebarArea = styled.div`
+  position: relative;
   max-width: 300px;
   min-width: 300px;
   width: 25%;
-  height:calc( 100vh - 50px);
+  min-height:calc( 100vh - 50px);
   overflow-y: auto;
   background-color: ${Colors.primary};
   transition: margin-left 0.5s;
@@ -88,9 +89,11 @@ export const SidebarArea = styled.div`
   }
   
   @media (max-width: 600px) {
+   
     width: 70% !important;
     max-width: 70% !important;
     min-width: 70% !important;
+    min-height:calc( 100% - 50px);
     position: absolute;
   }
 `;
