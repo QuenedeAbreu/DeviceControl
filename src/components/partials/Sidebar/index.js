@@ -6,6 +6,7 @@ import ImgPerfil from '../../../assets/images/perfilPadrao.jpg';
 import { AiFillHome, AiFillBank } from "react-icons/ai";
 import { Link } from 'react-router-dom';
 
+
 function Siderbar(props) {
 
   const [userAuthorization, setUserAuthorization] = useState(0);

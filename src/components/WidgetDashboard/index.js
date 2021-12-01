@@ -1,5 +1,6 @@
 import React from "react";
 import { AllWidgetDashboard } from "./styled";
+import Grafico from '../../components/Graficos/GraficoWidget';
 
 
 function WidgetDashboard(porps) {
@@ -15,7 +16,9 @@ function WidgetDashboard(porps) {
           <span>{porps.value}</span>
         </div>
         <div className="widget-content--value">
-          <span>Gráfico</span>
+          <div className="widget-content--value-grafico">
+            <Grafico color={porps.bgIcon} />
+          </div>
         </div>
       </div>
 

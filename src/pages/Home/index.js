@@ -4,8 +4,12 @@ import WidgetDashboard from '../../components/WidgetDashboard';
 import PageAll from '../../components/partials/PageAll';
 import { RiComputerLine } from "react-icons/ri";
 import { FaUserAstronaut } from "react-icons/fa";
+import GraficoLine from '../../components/Graficos/GraficoLineDashBoard'
+import GraficoCicle from '../../components/Graficos/GraficoCicloDashBoard'
+
+
 function page() {
-  const widgetsIfons = [
+  const widgetsInfos = [
     {
       id: 0,
       title: 'Computadores',
@@ -20,8 +24,8 @@ function page() {
       value: '50',
       bgIcon: '#25d398',
     }
-
   ]
+
 
   return (
     <PageAll>
@@ -29,17 +33,50 @@ function page() {
 
         <div className="container--Body">
 
+          <div className="container--Body--Title">
+            <h1>Dashboard</h1>
+          </div>
+
           <div className="container--Body--widget">
-            {widgetsIfons.map(widget => (
+            {widgetsInfos.map(widget => (
               <WidgetDashboard key={widget.id} {...widget} />
             ))}
           </div>
 
           <div className="container--Body--graphics">
-            <h1>Graphicos</h1>
-            <h1>Graphicos</h1>
+            <div className='container--Body--graphics--content'>
+              <div className='container--Body--graphics--content--title'>
+                <h1>Computadores</h1>
+              </div>
+              <div className='container--Body--graphics--content-in'>
+                <GraficoLine />
+              </div>
+            </div>
+            <div className='container--Body--graphics--content'>
+              <div className='container--Body--graphics--content--title'>
+                <h1>Concerto por Bloco</h1>
+              </div>
+              <GraficoCicle />
 
-
+            </div>
+            <div className='container--Body--graphics--content'>
+              ...
+            </div>
+            <div className='container--Body--graphics--content'>
+              ...
+            </div>
+            <div className='container--Body--graphics--content'>
+              ...
+            </div>
+            <div className='container--Body--graphics--content'>
+              ...
+            </div>
+            <div className='container--Body--graphics--content'>
+              ...
+            </div>
+            <div className='container--Body--graphics--content'>
+              ...
+            </div>
 
           </div>
 

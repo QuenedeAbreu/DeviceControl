@@ -5,19 +5,23 @@ import Colors from "../../helpers/Colors"
 export const AllWidgetDashboard = Styled.div`
   width: 24%;
   min-width: 180px;
+  /* max-width: 250px; */
   height: auto;
   min-height: 100px;
   margin: 10px 10px 0 0;
   border-radius: 10px;
-  background: ${Colors.primary};
+  background: ${Colors.secondary};
   display: flex;
   /* justify-content: center; */
-  box-shadow: 2px 2px 3px 0px ${Colors.lighterWhiteTransparent};
+  box-shadow: 2px 2px 3px 0px ${Colors.darkTransparent};
   align-items: center;
 
   .widget-icon{
-    width: 70px;
-    height: 70px;
+    min-width: 70px;
+    min-height: 70px;
+    max-width: 70px;
+    max-height: 70px;
+    border-radius: 50%;
     border-radius: 50%;
     background: ${props => props.bgIcon};
     margin: 0 10px;
@@ -60,12 +64,12 @@ export const AllWidgetDashboard = Styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
-      span{
-        color: ${Colors.white};
+      .widget-content--value-grafico{
+        width: 99%;
       }
    }
   }
   @media (max-width: 600px) {
-    min-width: 90%;
+    min-width: 100%;
   }
 `;

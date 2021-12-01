@@ -140,9 +140,7 @@ export const PageAll = styled.div`
     min-height: 100% !important;
     display: flex;
     flex-direction: row;
-    background-color: yellow;
-    
-
+    /* background-color: yellow; */
     .active{
       margin-left: -300px !important;
       transition: margin-left 0.5s;
