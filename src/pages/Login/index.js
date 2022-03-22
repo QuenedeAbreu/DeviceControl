@@ -20,8 +20,11 @@ import ImgLogo from "../../assets/images/logo150x150.png";
 
 function LoginPage(props) {
   const api = useApi();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+
   const [remember, setRemember] = useState(false);
   const [error, setError] = useState('');
   const [disabled, setDisabled] = useState(false);
@@ -29,11 +32,17 @@ function LoginPage(props) {
   const handleSubmit = async (e) => {
 
     e.preventDefault();
+
     setDisabled(true);
+
     const btn = document.querySelector('.buttonLogin');
+
     const content = btn.innerHTML;
+
     btn.innerHTML = '<div class="ld ld-spin ld-ring"></div>';
+
     const response = await api.login(email, password);
+
     btn.innerHTML = content;
 
 
@@ -54,10 +63,13 @@ function LoginPage(props) {
   }
 
 
+
+
   return (
     <All>
       <ContentRight>
         <img src={ImgLogo} alt="logo" />
+
         <form onSubmit={handleSubmit}>
 
           <Input
@@ -77,12 +89,14 @@ function LoginPage(props) {
             disabled={disabled}
             required
           />
+
           <label className="remember">
             <input type="checkbox" onChange={() => setRemember(!remember)} disabled={disabled} />
             <span>Lembrar-me</span>
           </label>
 
           {/* Botao de Login  */}
+
           <label className="buttonLogin ">
 
             <AiFillUnlock />
@@ -90,6 +104,7 @@ function LoginPage(props) {
             <button disabled={disabled}>Login</button>
           </label>
 
+          {/* End Botao de login */}
 
           {error && <ErrorMessage>{error}</ErrorMessage>}
         </form>
@@ -102,7 +117,7 @@ function LoginPage(props) {
 }
 
 const mapStateToProps = (state) => {
-  return { };
+  return {};
 }
 
 const mapDispatchToProps = (dispatch) => {

@@ -11,8 +11,8 @@ const apiFetchPost = async (url, data) => {
     if (token) {
       data.token = token;
     }
-
   }
+
   try {
 
     const response = await fetch(BASEAPI + url, {
@@ -21,6 +21,7 @@ const apiFetchPost = async (url, data) => {
         "Accept": "application/json",
         "Content-Type": "application/json"
       },
+
       body: JSON.stringify(data)
     });
 
@@ -36,6 +37,9 @@ const apiFetchPost = async (url, data) => {
     console.log(error);
   }
 }
+
+
+
 
 // eslint-disable-next-line
 const apiFetchGet = async (url, data = []) => {
@@ -59,18 +63,23 @@ const apiFetchGet = async (url, data = []) => {
 
 
 const ApiDeviceControl = {
+
   login: async function (username, password) {
     // consultar api para obtener token
     try {
 
       const response = await apiFetchPost(
-        '/api/auth/login ',
+        '/api/auth/login',
         { username, password });
+
       return response;
     } catch (error) {
       console.log(error);
     }
   }
+
+
+
 }
 
 export default () => ApiDeviceControl;

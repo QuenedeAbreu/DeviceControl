@@ -4,8 +4,9 @@ import WidgetDashboard from '../../components/WidgetDashboard';
 import PageAll from '../../components/partials/PageAll';
 import { RiComputerLine } from "react-icons/ri";
 import { FaUserAstronaut } from "react-icons/fa";
-import GraficoLine from '../../components/Graficos/GraficoLineDashBoard'
-import GraficoCicle from '../../components/Graficos/GraficoCicloDashBoard'
+import GraficoLine from '../../components/Graficos/GraficoLineDashBoard';
+import GraficoCicle from '../../components/Graficos/GraficoCicloDashBoard';
+// import GraficoCicleWidget from '../../components/Graficos/GraficoCicloWidgetDashBoard';
 
 
 function page() {
@@ -42,44 +43,27 @@ function page() {
               <WidgetDashboard key={widget.id} {...widget} />
             ))}
           </div>
-
+          {/* Graficos */}
           <div className="container--Body--graphics">
-            <div className='container--Body--graphics--content'>
-              <div className='container--Body--graphics--content--title'>
-                <h1>Computadores</h1>
+            {/* Linha 1 graficos */}
+            <div className="container--Body--graphics--row">
+              <div className='container--Body--graphics--content'>
+                <div className='container--Body--graphics--content--title'>
+                  <h1>Computadores</h1>
+                </div>
+                <div className='container--Body--graphics--content-in'>
+                  <GraficoLine />
+                </div>
               </div>
-              <div className='container--Body--graphics--content-in'>
-                <GraficoLine />
-              </div>
-            </div>
-            <div className='container--Body--graphics--content'>
-              <div className='container--Body--graphics--content--title'>
-                <h1>Concerto por Bloco</h1>
-              </div>
-              <GraficoCicle />
 
+              <div className='container--Body--graphics--content'>
+                <div className='container--Body--graphics--content--title'>
+                  <h1>Concerto por Bloco</h1>
+                </div>
+                <GraficoCicle />
+              </div>
             </div>
-            <div className='container--Body--graphics--content'>
-              ...
-            </div>
-            <div className='container--Body--graphics--content'>
-              ...
-            </div>
-            <div className='container--Body--graphics--content'>
-              ...
-            </div>
-            <div className='container--Body--graphics--content'>
-              ...
-            </div>
-            <div className='container--Body--graphics--content'>
-              ...
-            </div>
-            <div className='container--Body--graphics--content'>
-              ...
-            </div>
-
           </div>
-
         </div>
 
       </All>

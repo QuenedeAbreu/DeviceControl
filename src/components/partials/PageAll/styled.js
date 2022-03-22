@@ -18,6 +18,7 @@ export const PageAll = styled.div`
     background-color: ${colors.black};
     opacity: 0.75;
     animation: shadow-all 0.5s ease-in-out;
+    z-index: 1;
     @keyframes shadow-all {
       0% {
         opacity: 0;
@@ -147,6 +148,11 @@ export const PageAll = styled.div`
     }
   }
   @media (max-width: 600px) {
+   .headerContent--right{
+    button{
+      margin-right: 10px !important;
+    }
+   }
     .bodyContent{
     .active{
       margin-left: -70% !important;
